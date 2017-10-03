@@ -1,6 +1,7 @@
 package ke.co.dataintegrated.firebaseauthentication;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -65,7 +66,12 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                     }else {
-
+                        mUserEmail.setText("");
+                        mUserPassword.setText("");
+                        mProgressDialog.dismiss();
+                        Intent intent = new Intent(MainActivity.this,SecondActivity.class);
+                        startActivity(intent);
+                        finish();
                     }
                 }
             });
