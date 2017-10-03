@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "134626377480",
+    "firebase_url": "https://fir-demo-34b50.firebaseio.com",
+    "project_id": "fir-demo-34b50",
+    "storage_bucket": "fir-demo-34b50.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134626377480:android:e8a8cadd4b442cf9",
+        "android_client_info": {
+          "package_name": "ke.co.dataintegrated.firebaseauthentication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "134626377480-8d7hkekv7ibe6v28hgi0jodclrg2eq3f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRRWqCLzaW2RA-qEvaAWOYz5cd5SeWB6E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
