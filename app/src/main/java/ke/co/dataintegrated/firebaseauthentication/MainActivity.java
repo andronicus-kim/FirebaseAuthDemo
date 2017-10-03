@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         String email = mUserEmail.getText().toString().trim();
         String password = mUserPassword.getText().toString().trim();
 
-        if (!TextUtils.isEmpty(email) || !TextUtils.isEmpty(password)){
+        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
             mProgressDialog.dismiss();
             Toast.makeText(this, "Some fields are Empty!", Toast.LENGTH_SHORT).show();
         }else {
