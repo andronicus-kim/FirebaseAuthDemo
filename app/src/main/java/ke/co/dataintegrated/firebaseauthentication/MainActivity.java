@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mAuth = FirebaseAuth.getInstance();
         Button login = (Button) findViewById(R.id.btn_login);
         mUserEmail = (EditText) findViewById(R.id.et_email);
         mUserPassword = (EditText) findViewById(R.id.et_password);
@@ -53,15 +54,17 @@ public class MainActivity extends AppCompatActivity {
 
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
             mProgressDialog.dismiss();
-            Toast.makeText(this, "Some fields are Empty!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Login Fields Empty!", Toast.LENGTH_SHORT).show();
         }else {
             mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (!task.isSuccessful()){
                         if (task.getException().getMessage() !=null){
+                            mProgressDialog.dismiss();
                             Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }else {
+                            mProgressDialog.dismiss();
                             Toast.makeText(MainActivity.this, "Login failed try again", Toast.LENGTH_SHORT).show();
                         }
 
