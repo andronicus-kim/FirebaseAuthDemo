@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     private ProgressDialog mProgressDialog;
+    private EditText mUserEmail;
+    private EditText mUserPassword;
 
 
     @Override
@@ -29,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button login = (Button) findViewById(R.id.btn_login);
-        final EditText userEmail = (EditText) findViewById(R.id.et_email);
-        final EditText userPassword = (EditText) findViewById(R.id.et_password);
+        mUserEmail = (EditText) findViewById(R.id.et_email);
+        mUserPassword = (EditText) findViewById(R.id.et_password);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,15 +40,16 @@ public class MainActivity extends AppCompatActivity {
                 mProgressDialog.setCancelable(true);
                 mProgressDialog.setMessage("Signing In...");
                 mProgressDialog.show();
-                String email = userEmail.getText().toString().trim();
-                String password = userPassword.getText().toString().trim();
 
-                startSignIn(email,password);
+                startSignIn();
             }
         });
 
     }
-    private void startSignIn(String email,String password){
+    private void startSignIn(){
+        String email = mUserEmail.getText().toString().trim();
+        String password = mUserPassword.getText().toString().trim();
+
         if (!TextUtils.isEmpty(email) || !TextUtils.isEmpty(password)){
             mProgressDialog.dismiss();
             Toast.makeText(this, "Some fields are Empty!", Toast.LENGTH_SHORT).show();
@@ -60,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
                         }else {
                             Toast.makeText(MainActivity.this, "Login failed try again", Toast.LENGTH_SHORT).show();
                         }
+
+                    }else {
 
                     }
                 }
